@@ -379,11 +379,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="automator.cpp" />
-    <ClCompile Include="csurf_faderport.cpp" />
     <ClCompile Include="csurf_main.cpp" />
-    <ClCompile Include="DeviceButton.cpp" />
-    <ClCompile Include="FaderportDraw.cpp" />
+    <ClCompile Include="csurf_usrt.cpp" />
     <ClCompile Include="Helpers.cpp" />
   </ItemGroup>
   <ItemGroup>
