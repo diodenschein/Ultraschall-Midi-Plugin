@@ -57,14 +57,14 @@ class CSurf_USRT : public IReaperControlSurface
         if (evt->midi_message[1] >= 0x01 && evt->midi_message[1] <= 0x08) // mute/solo
         {
           int trackid=((evt->midi_message[1]-0x00)&7) + m_offset;
-          int wi=(evt->midi_message[1]-0x00)&8;
+//          int wi=(evt->midi_message[1]-0x00)&8;
           MediaTrack *tr=CSurf_TrackFromID(trackid,g_csurf_mcpmode);
 
           if (tr)
           {
-            if (!wi)
-              CSurf_SetSurfaceSolo(tr,CSurf_OnSoloChange(tr,evt->midi_message[2]>=0x00),this);
-            else
+//            if (!wi)
+//              CSurf_SetSurfaceSolo(tr,CSurf_OnSoloChange(tr,evt->midi_message[2]>=0x00),this);
+//            else
               CSurf_SetSurfaceMute(tr,CSurf_OnMuteChange(tr,evt->midi_message[2]>=0x00),this);
           }
         }
