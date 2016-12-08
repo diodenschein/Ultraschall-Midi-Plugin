@@ -25,12 +25,6 @@ class CSurf_USRT : public IReaperControlSurface
     WDL_String descspace;
     char configtmp[1024];
 
-//    unsigned int m_pan_lasttouch[256];
-//    unsigned int m_vol_lasttouch[256];
-//
-//    int m_vol_lastpos[256];
-//    int m_pan_lastpos[256];
-
     void OnMIDIEvent(MIDI_event_t *evt)
     {
       if ((evt->midi_message[0]&0xf0) == 0xB0)
@@ -56,8 +50,8 @@ class CSurf_USRT : public IReaperControlSurface
 //      else
         if (evt->midi_message[1] >= 0x01 && evt->midi_message[1] <= 0x08) // mute/solo
         {
-          int trackid=((evt->midi_message[1]-0x00)&7) + m_offset;
-//          int wi=(evt->midi_message[1]-0x00)&8;
+          int trackid=((evt->midi_message[1]-0x00)&0x07) + m_offset;
+//          int wi=(evt->midi_message[1]-0x00)&0x07;
           MediaTrack *tr=CSurf_TrackFromID(trackid,g_csurf_mcpmode);
 
           if (tr)
@@ -101,11 +95,7 @@ public:
     m_size=size;
     m_midi_in_dev=indev;
     m_midi_out_dev=outdev;
-  
-//    memset(m_vol_lastpos,0xff,sizeof(m_vol_lastpos));
-//    memset(m_pan_lastpos,0xff,sizeof(m_pan_lastpos));
-//    memset(m_pan_lasttouch,0,sizeof(m_pan_lasttouch));
-//    memset(m_vol_lasttouch,0,sizeof(m_vol_lasttouch));
+
 
     //create midi hardware access
     m_midiin = m_midi_in_dev >= 0 ? CreateMIDIInput(m_midi_in_dev) : NULL;
@@ -237,8 +227,6 @@ public:
 
   void ResetCachedVolPanStates() 
   { 
-//    memset(m_vol_lastpos,0xff,sizeof(m_vol_lastpos));
-//    memset(m_pan_lastpos,0xff,sizeof(m_pan_lastpos));
   }
   void OnTrackSelection(MediaTrack *trackid) 
   { 

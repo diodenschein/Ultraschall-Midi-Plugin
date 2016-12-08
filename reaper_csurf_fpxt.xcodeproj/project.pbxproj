@@ -395,7 +395,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					/Users/robertnixdorf/code/Faderport_XT/WDL/swell,
+					"\"$(SRCROOT)/WDL/swell\"",
 				);
 				OBJROOT = build;
 				"OTHER_CPLUSPLUSFLAGS[arch=*]" = "-DSWELL_PROVIDED_BY_APP";
@@ -418,7 +418,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					/Users/robertnixdorf/code/Faderport_XT/WDL/swell,
+					"\"$(SRCROOT)/WDL/swell\"",
 				);
 				"OTHER_CPLUSPLUSFLAGS[arch=*]" = "-DSWELL_PROVIDED_BY_APP";
 				PRODUCT_MODULE_NAME = reaper_csurf;

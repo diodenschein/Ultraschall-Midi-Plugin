@@ -18,22 +18,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="csurf_faderport.cpp">
-      <Filter>Source Files\csurfs</Filter>
-    </ClCompile>
     <ClCompile Include="csurf_main.cpp">
       <Filter>Source Files\csurfs</Filter>
     </ClCompile>
-    <ClCompile Include="automator.cpp">
-      <Filter>Source Files\csurfs</Filter>
-    </ClCompile>
-    <ClCompile Include="DeviceButton.cpp">
-      <Filter>Source Files\csurfs</Filter>
-    </ClCompile>
-    <ClCompile Include="FaderportDraw.cpp">
-      <Filter>Source Files\csurfs</Filter>
-    </ClCompile>
     <ClCompile Include="Helpers.cpp">
+      <Filter>Source Files\csurfs</Filter>
+    </ClCompile>
+    <ClCompile Include="csurf_usrt.cpp">
       <Filter>Source Files\csurfs</Filter>
     </ClCompile>
   </ItemGroup>
