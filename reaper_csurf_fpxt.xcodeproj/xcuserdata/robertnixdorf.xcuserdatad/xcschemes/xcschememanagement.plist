@@ -4,12 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>reaper_csurf_fpxt.xcscheme</key>
+		<key>reaper_csurf_usrt.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>reaper_csurf_fpxt32.xcscheme</key>
+		<key>reaper_csurf_usrt32.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
