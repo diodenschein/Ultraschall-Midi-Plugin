@@ -209,8 +209,8 @@ public:
     if (m_midiout)
     {
       m_midiout->Send(0xb0,0x59,play?0x7f:0,-1);
-      m_midiout->Send(0xb0,0x5a,pause?0x7f:0,-1);
-      m_midiout->Send(0xb0,0x5b,rec?0x7f:0,-1);
+      m_midiout->Send(0xb0,0x60,pause?0x7f:0,-1);
+      m_midiout->Send(0xb0,0x61,rec?0x7f:0,-1);
     }
   }
   void SetRepeatState(bool rep) 
