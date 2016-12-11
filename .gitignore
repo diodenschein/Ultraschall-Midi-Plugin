@@ -213,3 +213,4 @@ ModelManifest.xml
 
 #Mac Directory Files
 .DS_Store
+*.xcuserstate
