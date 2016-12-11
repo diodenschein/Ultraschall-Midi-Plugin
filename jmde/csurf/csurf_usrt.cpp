@@ -109,6 +109,8 @@ public:
 
     if (m_midiin)
       m_midiin->start();
+    if(m_midiout)
+        TrackList_UpdateAllExternalSurfaces();
 
   }
   ~CSurf_USRT()
