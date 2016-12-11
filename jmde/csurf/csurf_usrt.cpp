@@ -198,7 +198,11 @@ public:
   }
   void SetSurfaceRecArm(MediaTrack *trackid, bool recarm) 
   { 
-    // not used
+    FIXID(id)
+    if (m_midiout && id>=0 && id < 256 && id < m_size)
+    {
+        m_midiout->Send(0xb0,((id&7)+8),recarm?0x7f:0,-1);
+    }
   }
   void SetPlayState(bool play, bool pause, bool rec) 
   { 
