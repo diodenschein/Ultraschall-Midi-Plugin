@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "107ACC271C38ED9400270544"
-               BuildableName = "reaper_csurf_fpxt32.dylib"
-               BlueprintName = "reaper_csurf_fpxt32"
-               ReferencedContainer = "container:reaper_csurf_fpxt.xcodeproj">
+               BuildableName = "reaper_csurf_usrt32.dylib"
+               BlueprintName = "reaper_csurf_usrt32"
+               ReferencedContainer = "container:reaper_csurf_usrt.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,9 +46,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "107ACC271C38ED9400270544"
-            BuildableName = "reaper_csurf_fpxt32.dylib"
-            BlueprintName = "reaper_csurf_fpxt32"
-            ReferencedContainer = "container:reaper_csurf_fpxt.xcodeproj">
+            BuildableName = "reaper_csurf_usrt32.dylib"
+            BlueprintName = "reaper_csurf_usrt32"
+            ReferencedContainer = "container:reaper_csurf_usrt.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -64,9 +64,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "107ACC271C38ED9400270544"
-            BuildableName = "reaper_csurf_fpxt32.dylib"
-            BlueprintName = "reaper_csurf_fpxt32"
-            ReferencedContainer = "container:reaper_csurf_fpxt.xcodeproj">
+            BuildableName = "reaper_csurf_usrt32.dylib"
+            BlueprintName = "reaper_csurf_usrt32"
+            ReferencedContainer = "container:reaper_csurf_usrt.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
