@@ -51,7 +51,7 @@ class CSurf_USRT : public IReaperControlSurface
         if (evt->midi_message[1] >= 0x01 && evt->midi_message[1] <= 0x08) // mute/solo
         {
           int trackid=((evt->midi_message[1]-0x00)&0x07) + m_offset;
-//          int wi=(evt->midi_message[1]-0x00)&0x07;
+//          int wi=(evt->midi_message[1]-0x00)&0x08;
           MediaTrack *tr=CSurf_TrackFromID(trackid,g_csurf_mcpmode);
 
           if (tr)
@@ -113,6 +113,11 @@ public:
   }
   ~CSurf_USRT()
   {
+    if (m_midiout)
+    {
+        m_midiout->Send(0xb0,0x7F,0x7F,-1); //Tell Arduino we war closing
+        Sleep(5);
+    }
     delete m_midiout;
     delete m_midiin;
   }
@@ -134,7 +139,7 @@ public:
   }
 
   void CloseNoReset() 
-  { 
+  {
     delete m_midiout;
     delete m_midiin;
     m_midiout=0;
