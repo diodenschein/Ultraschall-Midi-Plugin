@@ -29,25 +29,7 @@ class CSurf_USRT : public IReaperControlSurface
     {
       if ((evt->midi_message[0]&0xf0) == 0xB0)
       {
-     //   int bank=evt->midi_message[0]&0xf;
           int bank = 0;
-
-//        if (evt->midi_message[1] >= 0x51 && evt->midi_message[1] <= 0x58) // volume set
-//        {
-//          int trackid=(evt->midi_message[1]-0x51)+bank*8 + m_offset;
-//          m_vol_lastpos[(trackid)&0xff]=evt->midi_message[2];
-//          m_vol_lasttouch[(trackid)&0xff]=GetTickCount();
-//          MediaTrack *tr=CSurf_TrackFromID(trackid,g_csurf_mcpmode);
-//          if (tr) CSurf_SetSurfaceVolume(tr,CSurf_OnVolumeChange(tr,charToVol(evt->midi_message[2]),false),this);
-//        }
-//        else if (evt->midi_message[1] >= 0x21 && evt->midi_message[1] <= 0x28) // pan reset
-//        {
-//          int trackid=((evt->midi_message[1]-0x21)&7)+bank*8 + m_offset;
-//          m_pan_lasttouch[trackid&0xff]=GetTickCount();
-//          MediaTrack *tr=CSurf_TrackFromID(trackid,g_csurf_mcpmode);
-//          if (tr) CSurf_SetSurfacePan(tr,CSurf_OnPanChange(tr,0.0,false),NULL);
-//        }
-//      else
         if (evt->midi_message[1] >= 0x01 && evt->midi_message[1] <= 0x08) // mute/solo
         {
           int trackid=((evt->midi_message[1]-0x00)&0x07) + m_offset;
@@ -62,29 +44,6 @@ class CSurf_USRT : public IReaperControlSurface
               CSurf_SetSurfaceMute(tr,CSurf_OnMuteChange(tr,evt->midi_message[2]>=0x00),this);
           }
         }
-//        else if (evt->midi_message[1] >= 0x01 && evt->midi_message[1] <= 0x08) // pan set
-//        {
-//          int trackid=(evt->midi_message[1]-0x01)+bank*8 + m_offset;
-//          m_pan_lasttouch[trackid&0xff]=GetTickCount();
-//          m_pan_lastpos[trackid&0xff]=evt->midi_message[2];
-//
-//          MediaTrack *tr=CSurf_TrackFromID(trackid,g_csurf_mcpmode);
-//          if (tr) CSurf_SetSurfacePan(tr,CSurf_OnPanChange(tr,charToPan(evt->midi_message[2]),false),this);
-//        }
-//        else if (evt->midi_message[1] == 0x59) CSurf_OnPlay();
-//        else if (evt->midi_message[1] == 0x5a) CSurf_OnStop();
-//        else if (evt->midi_message[1] == 0x5b) 
-//        {
-//          CSurf_OnRew(1);
-//          evt->midi_message[2]=0;
-//          if (m_midiout) m_midiout->SendMsg(evt,-1);
-//        }
-//        else if (evt->midi_message[1] == 0x5c) 
-//        {
-//          CSurf_OnFwd(1);
-//          evt->midi_message[2]=0;
-//          if (m_midiout) m_midiout->SendMsg(evt,-1);
-//        }
       }
     }
 
@@ -164,20 +123,8 @@ public:
 
 #define FIXID(id) int id=CSurf_TrackToID(trackid,g_csurf_mcpmode); int oid=id; id -= m_offset;
 
-  void SetSurfaceVolume(MediaTrack *trackid, double volume) 
-  {
-//    FIXID(id)
-//    if (m_midiout && id >= 0 && id < 256 && id < m_size)
-//    {
-//      unsigned char volch=volToChar(volume);
-//
-//      if (m_vol_lastpos[id]!=volch)
-//      {
-//        m_vol_lastpos[id]=volch;
-//        m_midiout->Send(0xB0+id/8,0x51+(id&7),volch,-1);
-//      }
-//    }
-  }
+  void SetSurfaceVolume(MediaTrack *trackid, double volume) {}
+    
   void SetSurfaceMute(MediaTrack *trackid, bool mute) 
   { 
     FIXID(id)
@@ -190,14 +137,8 @@ public:
   {
     // not used
   }
-  void SetSurfaceSolo(MediaTrack *trackid, bool solo) 
-  { 
-//    FIXID(id)
-//    if (m_midiout && id>=0 && id < 256 && id < m_size)
-//    {
-//      m_midiout->Send(0xb0+id/8,0x41+(id&7),solo?0x7f:0,-1);
-//    }
-  }
+  void SetSurfaceSolo(MediaTrack *trackid, bool solo) {}
+    
   void SetSurfaceRecArm(MediaTrack *trackid, bool recarm) 
   { 
     FIXID(id)
@@ -215,39 +156,24 @@ public:
       m_midiout->Send(0xb0,0x61,rec?0x7f:0,-1);
     }
   }
-  void SetRepeatState(bool rep) 
-  { 
-    // not used
-  }
+  void SetRepeatState(bool rep) { }
 
   void SetTrackTitle(MediaTrack *trackid, const char *title) { }
   bool GetTouchState(MediaTrack *trackid, int isPan) 
-  { 
-//    FIXID(id)
-//    unsigned int *wb=isPan == 1 ? m_pan_lasttouch : m_vol_lasttouch;
-//    if (oid >= 0 && oid < 256)
-//    {
-//      DWORD now=timeGetTime();
-//      if ((now<wb[oid]+3000 && now >= wb[oid]-1000)) // fake touch, go for 3s after last movement
-//        return true;
-//    }
+  {
     return false;
   }
 
   void SetAutoMode(int mode) { }
 
-  void ResetCachedVolPanStates() 
-  { 
-  }
-  void OnTrackSelection(MediaTrack *trackid) 
-  { 
-  }
+  void ResetCachedVolPanStates() { }
+    
+  void OnTrackSelection(MediaTrack *trackid) { }
   
   bool IsKeyDown(int key) 
   { 
     return false; 
   }
-
 
 };
 
