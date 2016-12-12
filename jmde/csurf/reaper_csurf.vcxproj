@@ -113,13 +113,13 @@
     <OutDir>..\..\Build\</OutDir>
     <IntDir>..\..\Debug\</IntDir>
     <LinkIncremental>true</LinkIncremental>
-    <TargetName>$(ProjectName)_fpxt</TargetName>
+    <TargetName>$(ProjectName)_usrt</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>..\..\Build\</OutDir>
     <IntDir>..\..\Debug\</IntDir>
     <LinkIncremental>true</LinkIncremental>
-    <TargetName>$(ProjectName)_fpxt</TargetName>
+    <TargetName>$(ProjectName)_usrt</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='X64|Win32'">
     <OutDir>.\Debug\</OutDir>
